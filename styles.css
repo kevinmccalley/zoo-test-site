@@ -1,0 +1,522 @@
+/* Zoo Test Site — intentionally inaccessible styles */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f5f5f5;
+}
+
+/* ── Header ── */
+.header {
+  background: #2d6a2d;
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  height: 48px;
+  width: auto;
+}
+
+.nav {
+  display: flex;
+  gap: 24px;
+}
+
+.nav div {
+  /* No cursor:pointer — doesn't hint interactivity */
+  color: #a8d5a8; /* Low contrast on green: ~2.8:1 */
+  font-size: 14px;
+  /* No focus ring, no :focus style */
+}
+
+.nav div.active {
+  color: #ffffff;
+}
+
+/* ── Content ── */
+.content {
+  max-width: 900px;
+  margin: 32px auto;
+  padding: 0 24px;
+}
+
+h1 {
+  font-size: 28px;
+  color: #1a1a1a;
+  margin-bottom: 16px;
+}
+
+h3 {
+  font-size: 18px;
+  color: #333;
+  margin: 24px 0 8px;
+}
+
+h4 {
+  font-size: 16px;
+  color: #444;
+  margin: 24px 0 8px;
+}
+
+/* Low contrast text: ~3.2:1 on white — fails WCAG AA for normal text */
+.low-contrast {
+  color: #999999;
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+/* Tiny text — fails minimum font size */
+.tiny-text {
+  font-size: 10px;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+/* ── Banner / Hero ── */
+.banner,
+.hero-img {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  margin-bottom: 16px;
+}
+
+.image-text-overlay {
+  background: url('images/elephant-hero.jpg') center/cover;
+  padding: 40px 20px;
+  text-align: center;
+  /* White text on unknown image background — contrast not guaranteed */
+  color: white;
+  font-size: 20px;
+  margin-bottom: 16px;
+}
+
+/* ── Decorative divider ── */
+.divider {
+  text-align: center;
+  color: #ccc;
+  margin: 24px 0;
+  font-size: 20px;
+}
+
+/* ── Animal cards ── */
+.animal-cards {
+  display: flex;
+  gap: 16px;
+  margin: 16px 0;
+  flex-wrap: wrap;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 16px;
+  width: calc(33% - 12px);
+  cursor: pointer;
+  /* No :focus style */
+}
+
+.card img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  margin-bottom: 8px;
+}
+
+.card h3 {
+  margin: 0 0 6px;
+  font-size: 16px;
+}
+
+.card a {
+  display: inline-block;
+  margin-top: 8px;
+  /* Link has no underline — hard to identify as link */
+  color: #2d6a2d;
+  text-decoration: none;
+  font-size: 12px;
+}
+
+/* ── Tables ── */
+.hours-table,
+.compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 24px;
+  font-size: 13px;
+}
+
+.hours-table td,
+.compare-table td {
+  border: 1px solid #ddd;
+  padding: 8px 12px;
+  /* First row uses <td> not <th> — no semantic header distinction */
+}
+
+/* ── Fake list ── */
+.fake-list {
+  margin-bottom: 16px;
+}
+
+.fake-list-item {
+  padding: 4px 0;
+  font-size: 14px;
+  color: #333;
+}
+
+/* ── Blink animation — can trigger seizures, no prefers-reduced-motion guard ── */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.blink-warning {
+  animation: blink 0.5s step-start infinite;
+  background: #ff0;
+  color: #c00;
+  font-weight: bold;
+  padding: 8px 12px;
+  margin: 16px 0;
+  font-size: 14px;
+}
+
+/* ── Gallery ── */
+.gallery {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.gallery a {
+  display: block;
+  /* No focus ring */
+  outline: none;
+}
+
+.gallery img {
+  width: 180px;
+  height: 120px;
+  object-fit: cover;
+  border: 1px solid #ddd;
+}
+
+/* ── Newsletter ── */
+.newsletter {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.newsletter input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 13px;
+  /* No visible focus ring */
+  outline: none;
+}
+
+.subscribe-btn {
+  padding: 8px 16px;
+  background: #2d6a2d;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  /* No discernible accessible name — only an icon character */
+  outline: none;
+}
+
+/* ── Accordion ── */
+.accordion {
+  margin-bottom: 24px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.accordion-header {
+  background: #f0f0f0;
+  padding: 12px 16px;
+  cursor: pointer;
+  border-bottom: 1px solid #ddd;
+  font-size: 14px;
+  /* No role="button", no aria-expanded, no keyboard handler */
+}
+
+.accordion-body {
+  padding: 12px 16px;
+  font-size: 13px;
+  background: #fff;
+}
+
+/* ── Status indicators — colour only ── */
+.status-indicators {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+.status-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.status-dot.green  { background: #2a2; }
+.status-dot.yellow { background: #aa0; }
+.status-dot.red    { background: #c00; }
+
+/* ── Forms ── */
+.booking-form,
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 480px;
+  margin-bottom: 24px;
+}
+
+.form-input,
+.form-textarea {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 13px;
+  outline: none; /* Focus ring removed */
+}
+
+.form-textarea {
+  resize: vertical;
+}
+
+/* Fake button styled as link — wrong semantics -->*/
+.fake-button {
+  display: inline-block;
+  padding: 8px 20px;
+  background: #2d6a2d;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 14px;
+  outline: none;
+}
+
+/* Low contrast submit button: ~2.5:1 */
+.low-contrast-btn {
+  padding: 10px 24px;
+  background: #aaa;
+  color: #ccc;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  outline: none;
+}
+
+/* ── Radio group ── */
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 13px;
+}
+
+/* ── Custom checkboxes — not keyboard accessible ── */
+.custom-checkboxes {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.custom-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  /* No tabindex, no keyboard support */
+}
+
+.checkbox-box {
+  width: 18px;
+  height: 18px;
+  border: 2px solid #999;
+  border-radius: 3px;
+  background: #fff;
+  flex-shrink: 0;
+}
+
+.checkbox-box.checked {
+  background: #2d6a2d;
+  border-color: #2d6a2d;
+}
+
+/* ── Modal — keyboard trap ── */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-box {
+  background: #fff;
+  padding: 32px;
+  border-radius: 8px;
+  max-width: 480px;
+  position: relative;
+}
+
+.modal-box h2 {
+  margin-bottom: 12px;
+  font-size: 20px;
+}
+
+.modal-box p {
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+.modal-close {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  cursor: pointer;
+  font-size: 18px;
+  color: #666;
+  /* Not focusable, no aria-label, not a button */
+}
+
+.open-modal-btn {
+  padding: 8px 20px;
+  background: #c00;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-bottom: 24px;
+  outline: none;
+}
+
+/* ── Fun facts (positive tabindex) ── */
+.fun-facts {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.fact-card {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  padding: 12px 16px;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+/* ── Temp feed ── */
+.temp-feed {
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: 12px 16px;
+  font-size: 13px;
+  margin-bottom: 24px;
+}
+
+/* ── Species list — colour only ── */
+.species-list {
+  margin: 0 0 16px 20px;
+  font-size: 14px;
+}
+
+.species-list li {
+  margin-bottom: 6px;
+  font-weight: bold;
+}
+
+/* ── Hours div ── */
+.hours-div {
+  font-size: 14px;
+  line-height: 2;
+  margin-bottom: 24px;
+}
+
+/* ── Form feedback ── */
+.form-error {
+  background: #fee;
+  border: 1px solid #c00;
+  color: #c00;
+  padding: 10px 14px;
+  border-radius: 4px;
+  font-size: 13px;
+  margin-bottom: 16px;
+  /* No aria-live — not announced to screen readers */
+}
+
+.form-success {
+  background: #efe;
+  border: 1px solid #2a2;
+  color: #2a2;
+  padding: 10px 14px;
+  border-radius: 4px;
+  font-size: 13px;
+  margin-bottom: 16px;
+}
+
+/* ── Quote image ── */
+.quote-img {
+  max-width: 100%;
+  margin-bottom: 16px;
+}
+
+/* ── Footer ── */
+.footer {
+  background: #2d6a2d;
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 48px;
+}
+
+/* Very low contrast footer text: ~2.1:1 */
+.footer-text {
+  color: #5a8f5a;
+  font-size: 12px;
+}
+
+.footer a {
+  color: #5a8f5a;
+  font-size: 12px;
+  text-decoration: none;
+}
+
+/* iFrame — no title, unstyled */
+iframe {
+  display: block;
+  margin-bottom: 24px;
+  border: 1px solid #ddd;
+}

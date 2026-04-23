@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Elephants - The Zoo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="header">
+    <img src="images/logo.png" class="logo">
+    <div class="nav">
+      <div onclick="location.href='index.html'">Home</div>
+      <div onclick="location.href='elephants.html'" class="active">Elephants</div>
+      <div onclick="location.href='ostriches.html'">Ostriches</div>
+      <div onclick="location.href='lizards.html'">Lizards</div>
+      <div onclick="location.href='contact.html'">Contact</div>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <!-- Skips h2 entirely -->
+    <h1>Elephants</h1>
+    <h3>About African Elephants</h3>
+
+    <!-- Image missing alt -->
+    <img src="images/elephant-hero.jpg" class="hero-img">
+
+    <!-- Text on an image background with no contrast guarantee -->
+    <div class="image-text-overlay">
+      <p>The African elephant is a marvel of nature.</p>
+    </div>
+
+    <h3>Key Facts</h3>
+
+    <!-- List items conveyed only by visual formatting, not <ul>/<li> -->
+    <div class="fake-list">
+      <div class="fake-list-item">• Average weight: 6,000 kg</div>
+      <div class="fake-list-item">• Lifespan: 60–70 years</div>
+      <div class="fake-list-item">• Diet: Herbivore (grass, fruit, bark)</div>
+      <div class="fake-list-item">• Habitat: African savanna and forests</div>
+    </div>
+
+    <!-- Flashing/blinking content with no warning -->
+    <div class="blink-warning">⚠ FEEDING TIME AT 3PM TODAY!</div>
+
+    <h3>Did You Know?</h3>
+    <p class="low-contrast">
+      Elephants are the only animals that cannot jump. They use their trunks, which contain over
+      40,000 muscles, to breathe, smell, drink, and grab objects.
+    </p>
+
+    <!-- Image gallery: all images missing alt, and links wrap images with no text -->
+    <h3>Photo Gallery</h3>
+    <div class="gallery">
+      <a href="images/elephant-1-full.jpg"><img src="images/elephant-1.jpg"></a>
+      <a href="images/elephant-2-full.jpg"><img src="images/elephant-2.jpg"></a>
+      <a href="images/elephant-3-full.jpg"><img src="images/elephant-3.jpg"></a>
+      <a href="images/elephant-4-full.jpg"><img src="images/elephant-4.jpg"></a>
+    </div>
+
+    <!-- Accordion built with divs, no keyboard support, no aria -->
+    <h3>Frequently Asked Questions</h3>
+    <div class="accordion">
+      <div class="accordion-header" onclick="toggleAccordion('faq1')">
+        Can I feed the elephants?
+      </div>
+      <div class="accordion-body" id="faq1" style="display:none">
+        Yes! Elephant feeding sessions are held daily at 3pm. You can purchase elephant food
+        at the main gift shop for $5.
+      </div>
+
+      <div class="accordion-header" onclick="toggleAccordion('faq2')">
+        How close can I get to the elephants?
+      </div>
+      <div class="accordion-body" id="faq2" style="display:none">
+        Our elephant enclosure has a viewing platform 3 meters from the fence. During feeding
+        sessions, guests may approach within 1 meter under staff supervision.
+      </div>
+
+      <div class="accordion-header" onclick="toggleAccordion('faq3')">
+        Are elephants dangerous?
+      </div>
+      <div class="accordion-body" id="faq3" style="display:none">
+        Our elephants are well-trained and accustomed to human presence, but as wild animals
+        they should always be respected and observed from a safe distance.
+      </div>
+    </div>
+
+    <!-- Color used as only means of conveying information -->
+    <h3>Elephant Health Status</h3>
+    <p class="tiny-text">Enclosure status indicators below:</p>
+    <div class="status-indicators">
+      <div class="status-dot green"></div> Nelly
+      <div class="status-dot green"></div> Babar
+      <div class="status-dot yellow"></div> Dumbo
+      <div class="status-dot red"></div> Tantor
+    </div>
+    <p class="tiny-text">(Green = healthy, Yellow = under observation, Red = restricted access)</p>
+
+  </div>
+
+  <div class="footer">
+    <p class="footer-text">© 2024 The Zoo. All rights reserved.</p>
+    <a href="https://example.com/zoo-map" target="_blank">Download Map</a>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>

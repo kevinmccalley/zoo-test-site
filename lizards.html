@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Lizards - The Zoo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="header">
+    <img src="images/logo.png" class="logo">
+    <div class="nav">
+      <div onclick="location.href='index.html'">Home</div>
+      <div onclick="location.href='elephants.html'">Elephants</div>
+      <div onclick="location.href='ostriches.html'">Ostriches</div>
+      <div onclick="location.href='lizards.html'" class="active">Lizards</div>
+      <div onclick="location.href='contact.html'">Contact</div>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <h1>Lizards</h1>
+
+    <img src="images/lizard-hero.jpg" class="hero-img">
+
+    <h3>The Reptile House</h3>
+
+    <!-- Text rendered as an image — no text alternative -->
+    <img src="images/lizard-quote.png" class="quote-img">
+
+    <p class="low-contrast">
+      Lizards are a widespread group of squamate reptiles with over 6,000 species, ranging across all
+      continents except Antarctica. They range from tiny geckos a few centimetres long to the Komodo
+      dragon at 3 metres.
+    </p>
+
+    <!-- Colour-only information: species names coloured by danger level -->
+    <h3>Species in Our Collection</h3>
+    <p class="tiny-text">Species highlighted in red are venomous. Species in green are safe to handle.</p>
+    <ul class="species-list">
+      <li style="color: #c00;">Gila Monster</li>
+      <li style="color: #080;">Blue-tongued Skink</li>
+      <li style="color: #c00;">Komodo Dragon</li>
+      <li style="color: #080;">Bearded Dragon</li>
+      <li style="color: #080;">Leopard Gecko</li>
+      <li style="color: #c00;">Mexican Beaded Lizard</li>
+    </ul>
+
+    <!-- Custom checkbox group with no fieldset/legend or ARIA -->
+    <h3>Plan Your Visit</h3>
+    <p class="tiny-text">Select which exhibits you want to see:</p>
+    <div class="custom-checkboxes">
+      <div class="custom-checkbox" onclick="toggleCheck(this)">
+        <div class="checkbox-box"></div>
+        <span>Reptile House</span>
+      </div>
+      <div class="custom-checkbox" onclick="toggleCheck(this)">
+        <div class="checkbox-box"></div>
+        <span>Feeding Demonstration</span>
+      </div>
+      <div class="custom-checkbox" onclick="toggleCheck(this)">
+        <div class="checkbox-box"></div>
+        <span>Komodo Dragon Viewing</span>
+      </div>
+      <div class="custom-checkbox" onclick="toggleCheck(this)">
+        <div class="checkbox-box"></div>
+        <span>Gecko Touch Tank</span>
+      </div>
+    </div>
+
+    <!-- Keyboard trap: modal that can't be closed with keyboard -->
+    <button onclick="document.getElementById('modal').style.display='flex'" class="open-modal-btn">
+      View Komodo Dragon Warning
+    </button>
+
+    <div id="modal" class="modal" style="display:none;" aria-hidden="true">
+      <div class="modal-box">
+        <h2>⚠ Komodo Dragon Warning</h2>
+        <p>The Komodo dragon enclosure is strictly off-limits without a staff escort.
+           Komodo dragons have venomous bites and can run up to 20 km/h.</p>
+        <!-- Close button has no accessible label -->
+        <div onclick="document.getElementById('modal').style.display='none'" class="modal-close">X</div>
+      </div>
+    </div>
+
+    <!-- Auto-refreshing content with no user control -->
+    <h3>Live Temperature Feed</h3>
+    <div id="temp-feed" class="temp-feed">
+      Loading enclosure temperatures...
+    </div>
+
+    <!-- iFrame with no title -->
+    <h3>Lizard Cam</h3>
+    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" width="560" height="315"></iframe>
+
+    <!-- Photo gallery without alt text -->
+    <h3>Photo Gallery</h3>
+    <div class="gallery">
+      <a href="images/lizard-1-full.jpg"><img src="images/lizard-1.jpg"></a>
+      <a href="images/lizard-2-full.jpg"><img src="images/lizard-2.jpg"></a>
+      <a href="images/lizard-3-full.jpg"><img src="images/lizard-3.jpg"></a>
+      <a href="images/lizard-4-full.jpg"><img src="images/lizard-4.jpg"></a>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <p class="footer-text">© 2024 The Zoo. All rights reserved.</p>
+    <a href="https://example.com/zoo-map" target="_blank">Download Map</a>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>

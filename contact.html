@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Contact - The Zoo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="header">
+    <img src="images/logo.png" class="logo">
+    <div class="nav">
+      <div onclick="location.href='index.html'">Home</div>
+      <div onclick="location.href='elephants.html'">Elephants</div>
+      <div onclick="location.href='ostriches.html'">Ostriches</div>
+      <div onclick="location.href='lizards.html'">Lizards</div>
+      <div onclick="location.href='contact.html'" class="active">Contact</div>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <h1>Contact Us</h1>
+
+    <!-- Entire contact form is inaccessible in multiple ways -->
+    <form class="contact-form" onsubmit="handleContactSubmit(event)">
+
+      <!-- No label at all -->
+      <input type="text" placeholder="Full Name *" class="form-input" id="name">
+
+      <!-- Label text doesn't describe the field -->
+      <label for="email-field">Field 2</label>
+      <input type="email" id="email-field" placeholder="Email address" class="form-input">
+
+      <!-- Phone with wrong input type -->
+      <label for="phone">Phone</label>
+      <input type="text" id="phone" placeholder="(555) 555-5555" class="form-input">
+
+      <!-- Textarea with no label -->
+      <textarea placeholder="Write your message here..." class="form-textarea" rows="5"></textarea>
+
+      <!-- Radio group with no fieldset/legend -->
+      <div class="radio-group">
+        <div><input type="radio" name="topic" value="general"> General Inquiry</div>
+        <div><input type="radio" name="topic" value="booking"> Booking</div>
+        <div><input type="radio" name="topic" value="complaint"> Complaint</div>
+        <div><input type="radio" name="topic" value="press"> Press</div>
+      </div>
+
+      <!-- Required fields indicated only by colour (red asterisk, no aria-required) -->
+      <p style="color: red; font-size: 10px;">* Required fields</p>
+
+      <!-- Submit button with insufficient contrast -->
+      <button type="submit" class="low-contrast-btn">Send Message</button>
+
+    </form>
+
+    <!-- Error message that appears but is not announced -->
+    <div id="form-error" class="form-error" style="display:none;">
+      Please fill in all required fields.
+    </div>
+
+    <!-- Success message hidden then shown, but no aria-live -->
+    <div id="form-success" class="form-success" style="display:none;">
+      Thank you for your message! We'll be in touch.
+    </div>
+
+    <h3>Find Us</h3>
+
+    <!-- iFrame map with no title -->
+    <iframe
+      src="https://www.openstreetmap.org/export/embed.html?bbox=-0.1%2C51.4%2C0.1%2C51.6&layer=mapnik"
+      width="600"
+      height="400"
+      style="border:1px solid #ccc">
+    </iframe>
+
+    <h3>Opening Hours</h3>
+
+    <!-- Opening hours communicated only with text colour / bold, no semantic table -->
+    <div class="hours-div">
+      <span style="color:#090; font-weight:bold;">Mon–Fri:</span> 9am–5pm<br>
+      <span style="color:#090; font-weight:bold;">Saturday:</span> 8am–7pm<br>
+      <span style="color:#c00; font-weight:bold;">Sunday:</span> CLOSED
+    </div>
+
+    <!-- Link with duplicate text pointing to different destinations -->
+    <p>
+      <a href="elephants.html">Learn more</a> about our elephants or
+      <a href="ostriches.html">learn more</a> about our ostriches.
+    </p>
+
+    <!-- Empty link -->
+    <a href="tel:+15555550100"></a>
+
+  </div>
+
+  <div class="footer">
+    <p class="footer-text">© 2024 The Zoo. All rights reserved.</p>
+    <a href="https://example.com/zoo-map" target="_blank">Download Map</a>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<!-- Missing lang attribute on <html> -->
+<head>
+  <!-- No <title> element -->
+  <meta charset="UTF-8">
+  <!-- viewport with user-scalable=no -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Skip link missing entirely -->
+
+  <!-- Non-semantic header with no landmark role -->
+  <div class="header">
+    <!-- Logo image missing alt -->
+    <img src="images/logo.png" class="logo">
+    <!-- Nav not wrapped in <nav>, links are divs -->
+    <div class="nav">
+      <div onclick="location.href='index.html'">Home</div>
+      <div onclick="location.href='elephants.html'">Elephants</div>
+      <div onclick="location.href='ostriches.html'">Ostriches</div>
+      <div onclick="location.href='lizards.html'">Lizards</div>
+      <div onclick="location.href='contact.html'">Contact</div>
+    </div>
+  </div>
+
+  <!-- No <main> landmark -->
+  <div class="content">
+
+    <!-- Heading hierarchy skips from h1 to h4 -->
+    <h1>Welcome to the Zoo</h1>
+
+    <!-- Image missing alt text -->
+    <img src="images/zoo-banner.jpg" class="banner">
+
+    <h4>Our Amazing Animals</h4>
+
+    <!-- Low contrast text on light background -->
+    <p class="low-contrast">
+      We have three incredible animal exhibits waiting for you to explore. Come and learn about the majestic
+      elephant, the flightless ostrich, and the cold-blooded lizard.
+    </p>
+
+    <!-- Decorative divider with no aria-hidden -->
+    <div class="divider">★ ★ ★</div>
+
+    <!-- Cards using divs, no semantic structure, onclick but no keyboard support -->
+    <div class="animal-cards">
+
+      <div class="card" onclick="location.href='elephants.html'">
+        <!-- Image with meaningless alt -->
+        <img src="images/elephant-thumb.jpg" alt="image1">
+        <!-- Empty heading -->
+        <h3></h3>
+        <p class="tiny-text">The African elephant is the world's largest land animal.</p>
+        <!-- Link with non-descriptive text -->
+        <a href="elephants.html">Click here</a>
+      </div>
+
+      <div class="card" onclick="location.href='ostriches.html'">
+        <img src="images/ostrich-thumb.jpg" alt="image2">
+        <h3>Ostriches</h3>
+        <p class="tiny-text">Ostriches are flightless birds that can run up to 45 mph.</p>
+        <a href="ostriches.html">Click here</a>
+      </div>
+
+      <div class="card" onclick="location.href='lizards.html'">
+        <img src="images/lizard-thumb.jpg" alt="image3">
+        <h3>Lizards</h3>
+        <p class="tiny-text">Over 6,000 species of lizards roam the earth today.</p>
+        <a href="lizards.html">Click here</a>
+      </div>
+
+    </div>
+
+    <!-- Table missing caption, th scope, and headers -->
+    <h4>Visiting Hours</h4>
+    <table class="hours-table">
+      <tr>
+        <td>Day</td>
+        <td>Opens</td>
+        <td>Closes</td>
+      </tr>
+      <tr>
+        <td>Monday - Friday</td>
+        <td>9:00 AM</td>
+        <td>5:00 PM</td>
+      </tr>
+      <tr>
+        <td>Saturday</td>
+        <td>8:00 AM</td>
+        <td>7:00 PM</td>
+      </tr>
+      <tr>
+        <td>Sunday</td>
+        <td>10:00 AM</td>
+        <td>4:00 PM</td>
+      </tr>
+    </table>
+
+    <!-- Auto-playing video with no controls, no captions -->
+    <h4>Zoo Highlights Video</h4>
+    <video autoplay loop src="videos/zoo-highlights.mp4" width="600"></video>
+
+    <!-- Newsletter signup — inputs with no labels, only placeholder -->
+    <h4>Newsletter</h4>
+    <div class="newsletter">
+      <input type="text" placeholder="First Name">
+      <input type="text" placeholder="Last Name">
+      <input type="email" placeholder="Email Address">
+      <!-- Button with no discernible text — only icon char -->
+      <button class="subscribe-btn">&#9993;</button>
+    </div>
+
+  </div>
+
+  <!-- Footer with insufficient contrast -->
+  <div class="footer">
+    <p class="footer-text">© 2024 The Zoo. All rights reserved.</p>
+    <!-- Link opens new tab with no warning -->
+    <a href="https://example.com/zoo-map" target="_blank">Download Map</a>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>

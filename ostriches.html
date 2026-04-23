@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Ostriches - The Zoo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="header">
+    <img src="images/logo.png" class="logo">
+    <div class="nav">
+      <div onclick="location.href='index.html'">Home</div>
+      <div onclick="location.href='elephants.html'">Elephants</div>
+      <div onclick="location.href='ostriches.html'" class="active">Ostriches</div>
+      <div onclick="location.href='lizards.html'">Lizards</div>
+      <div onclick="location.href='contact.html'">Contact</div>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <h1>Ostriches</h1>
+
+    <!-- Missing alt on hero image -->
+    <img src="images/ostrich-hero.jpg" class="hero-img">
+
+    <!-- Paragraph of very small text -->
+    <p style="font-size: 9px; color: #aaa;">
+      The ostrich (Struthio camelus) is a species of large flightless bird native to Africa. It is the
+      largest living bird in the world and lays the largest eggs of any living land animal.
+    </p>
+
+    <h3>Speed &amp; Strength</h3>
+    <p class="low-contrast">
+      Ostriches can sprint at over 70 km/h (43 mph), making them the fastest running birds on earth.
+      They can maintain a steady speed of about 50 km/h (31 mph) over long distances.
+    </p>
+
+    <!-- Inaccessible data table — no headers at all -->
+    <h3>Ostrich vs. Other Birds</h3>
+    <table class="compare-table">
+      <tr>
+        <td>Species</td>
+        <td>Top Speed</td>
+        <td>Height</td>
+        <td>Weight</td>
+        <td>Can Fly?</td>
+      </tr>
+      <tr>
+        <td>Ostrich</td>
+        <td>70 km/h</td>
+        <td>2.7 m</td>
+        <td>156 kg</td>
+        <td>No</td>
+      </tr>
+      <tr>
+        <td>Emu</td>
+        <td>50 km/h</td>
+        <td>1.9 m</td>
+        <td>60 kg</td>
+        <td>No</td>
+      </tr>
+      <tr>
+        <td>Peregrine Falcon</td>
+        <td>389 km/h</td>
+        <td>0.5 m</td>
+        <td>1.5 kg</td>
+        <td>Yes</td>
+      </tr>
+    </table>
+
+    <!-- Form with poor accessibility -->
+    <h3>Book an Ostrich Encounter</h3>
+    <form class="booking-form" onsubmit="return false;">
+      <!-- Input with no label, placeholder only -->
+      <input type="text" placeholder="Your Name" class="form-input">
+      <!-- Input with label that doesn't match for/id -->
+      <label for="wrong-id">Date of Visit</label>
+      <input type="date" id="visit-date" class="form-input">
+      <!-- Select with no label -->
+      <select class="form-input">
+        <option value="">Number of guests</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4+</option>
+      </select>
+      <!-- Required field not indicated -->
+      <input type="email" placeholder="Email" class="form-input">
+      <!-- Button styled as link (confusing role) -->
+      <a href="#" class="fake-button" onclick="return false;">Submit Booking</a>
+    </form>
+
+    <!-- Audio with no transcript or captions -->
+    <h3>Listen to an Ostrich</h3>
+    <audio controls src="audio/ostrich-call.mp3">
+      Your browser does not support the audio element.
+    </audio>
+    <!-- No transcript provided -->
+
+    <!-- Images in gallery without alt text -->
+    <h3>Photo Gallery</h3>
+    <div class="gallery">
+      <a href="images/ostrich-1-full.jpg"><img src="images/ostrich-1.jpg"></a>
+      <a href="images/ostrich-2-full.jpg"><img src="images/ostrich-2.jpg"></a>
+      <a href="images/ostrich-3-full.jpg"><img src="images/ostrich-3.jpg"></a>
+    </div>
+
+    <!-- Positive tabindex disrupts focus order -->
+    <h3>Fun Facts</h3>
+    <div class="fun-facts">
+      <div class="fact-card" tabindex="3">Ostriches have the largest eyes of any land animal.</div>
+      <div class="fact-card" tabindex="1">An ostrich egg weighs about 1.4 kg.</div>
+      <div class="fact-card" tabindex="2">Ostriches don't actually bury their heads in the sand.</div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <p class="footer-text">© 2024 The Zoo. All rights reserved.</p>
+    <a href="https://example.com/zoo-map" target="_blank">Download Map</a>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
