@@ -1,119 +1,130 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Ostriches - The Zoo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
+  <style>
+    a:focus-visible, a:focus,
+    button:focus-visible, button:focus,
+    input:focus-visible, input:focus,
+    select:focus-visible, select:focus,
+    textarea:focus-visible, textarea:focus,
+    [tabindex]:focus-visible, [tabindex]:focus {
+      outline: 3px solid #005fcc !important;
+      outline-offset: 2px !important;
+    }
+  </style>
 </head>
 <body>
 
+  <a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:0">Skip to main content</a>
+
   <div class="header">
-    <img src="https://placehold.co/120x48/2d6a2d/ffffff?text=THE+ZOO" class="logo">
-    <div class="nav">
-      <div onclick="location.href='index.html'">Home</div>
-      <div onclick="location.href='elephants.html'">Elephants</div>
-      <div onclick="location.href='ostriches.html'" class="active">Ostriches</div>
-      <div onclick="location.href='lizards.html'">Lizards</div>
-      <div onclick="location.href='contact.html'">Contact</div>
-    </div>
+    <img src="https://placehold.co/120x48/2d6a2d/ffffff?text=THE+ZOO" class="logo" alt="The Zoo">
+    <nav aria-label="Site navigation">
+      <ul style="list-style:none;margin:0;padding:0;display:flex;">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="elephants.html" class="nav-link">Elephants</a></li>
+        <li><a href="ostriches.html" class="nav-link active">Ostriches</a></li>
+        <li><a href="lizards.html" class="nav-link">Lizards</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+    </nav>
   </div>
 
-  <div class="content">
+  <main id="main-content" class="content">
 
     <h1>Ostriches</h1>
 
-    <!-- Missing alt on hero image -->
-    <img src="https://loremflickr.com/900/300/ostrich,bird,africa" class="hero-img">
+    <img src="https://loremflickr.com/900/300/ostrich,bird,africa" class="hero-img" alt="Ostrich in its natural habitat in Africa">
 
-    <!-- Paragraph of very small text -->
-    <p style="font-size: 9px; color: #aaa;">
+    <p style="font-size: 1rem; color: #555;">
       The ostrich (Struthio camelus) is a species of large flightless bird native to Africa. It is the
       largest living bird in the world and lays the largest eggs of any living land animal.
     </p>
 
-    <h3>Speed &amp; Strength</h3>
-    <p class="low-contrast">
+    <h2>Speed &amp; Strength</h2>
+    <p>
       Ostriches can sprint at over 70 km/h (43 mph), making them the fastest running birds on earth.
       They can maintain a steady speed of about 50 km/h (31 mph) over long distances.
     </p>
 
-    <!-- Inaccessible data table — no headers at all -->
-    <h3>Ostrich vs. Other Birds</h3>
+    <h2>Ostrich vs. Other Birds</h2>
     <table class="compare-table">
-      <tr>
-        <td>Species</td>
-        <td>Top Speed</td>
-        <td>Height</td>
-        <td>Weight</td>
-        <td>Can Fly?</td>
-      </tr>
-      <tr>
-        <td>Ostrich</td>
-        <td>70 km/h</td>
-        <td>2.7 m</td>
-        <td>156 kg</td>
-        <td>No</td>
-      </tr>
-      <tr>
-        <td>Emu</td>
-        <td>50 km/h</td>
-        <td>1.9 m</td>
-        <td>60 kg</td>
-        <td>No</td>
-      </tr>
-      <tr>
-        <td>Peregrine Falcon</td>
-        <td>389 km/h</td>
-        <td>0.5 m</td>
-        <td>1.5 kg</td>
-        <td>Yes</td>
-      </tr>
+      <thead>
+        <tr>
+          <th scope="col">Species</th>
+          <th scope="col">Top Speed</th>
+          <th scope="col">Height</th>
+          <th scope="col">Weight</th>
+          <th scope="col">Can Fly?</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Ostrich</td>
+          <td>70 km/h</td>
+          <td>2.7 m</td>
+          <td>156 kg</td>
+          <td>No</td>
+        </tr>
+        <tr>
+          <td>Emu</td>
+          <td>50 km/h</td>
+          <td>1.9 m</td>
+          <td>60 kg</td>
+          <td>No</td>
+        </tr>
+        <tr>
+          <td>Peregrine Falcon</td>
+          <td>389 km/h</td>
+          <td>0.5 m</td>
+          <td>1.5 kg</td>
+          <td>Yes</td>
+        </tr>
+      </tbody>
     </table>
 
-    <!-- Form with poor accessibility -->
-    <h3>Book an Ostrich Encounter</h3>
+    <h2>Book an Ostrich Encounter</h2>
     <form class="booking-form" onsubmit="return false;">
-      <!-- Input with no label, placeholder only -->
-      <input type="text" placeholder="Your Name" class="form-input">
-      <!-- Input with label that doesn't match for/id -->
-      <label for="wrong-id">Date of Visit</label>
+      <label for="your-name">Your Name</label>
+      <input type="text" id="your-name" placeholder="Your Name" class="form-input">
+      <label for="visit-date">Date of Visit</label>
       <input type="date" id="visit-date" class="form-input">
-      <!-- Select with no label -->
-      <select class="form-input">
+      <label for="num-guests">Number of guests</label>
+      <select id="num-guests" class="form-input">
         <option value="">Number of guests</option>
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
         <option value="4">4+</option>
       </select>
-      <!-- Required field not indicated -->
-      <input type="email" placeholder="Email" class="form-input">
-      <!-- Button styled as link (confusing role) -->
-      <a href="#" class="fake-button" onclick="return false;">Submit Booking</a>
+      <label for="guest-email">Email <span aria-hidden="true">*</span><span class="sr-only">(required)</span></label>
+      <input type="email" id="guest-email" placeholder="Email" class="form-input" required aria-required="true">
+      <button type="submit" class="fake-button" onclick="return false;">Submit Booking</button>
     </form>
 
-    <!-- Images in gallery without alt text -->
-    <h3>Photo Gallery</h3>
+    <h2>Photo Gallery</h2>
     <div class="gallery">
-      <a href="#"><img src="https://loremflickr.com/360/240/ostrich"></a>
-      <a href="#"><img src="https://loremflickr.com/360/240/ostrich,running"></a>
-      <a href="#"><img src="https://loremflickr.com/360/240/ostrich,egg"></a>
+      <a href="#" aria-label="Ostrich photo 1"><img src="https://loremflickr.com/360/240/ostrich" alt="An ostrich" aria-hidden="true"></a>
+      <a href="#" aria-label="Ostrich photo 2"><img src="https://loremflickr.com/360/240/ostrich,running" alt="An ostrich running" aria-hidden="true"></a>
+      <a href="#" aria-label="Ostrich photo 3"><img src="https://loremflickr.com/360/240/ostrich,egg" alt="An ostrich egg" aria-hidden="true"></a>
     </div>
 
-    <!-- Positive tabindex disrupts focus order -->
-    <h3>Fun Facts</h3>
+    <h2>Fun Facts</h2>
     <div class="fun-facts">
-      <div class="fact-card" tabindex="3">Ostriches have the largest eyes of any land animal.</div>
-      <div class="fact-card" tabindex="1">An ostrich egg weighs about 1.4 kg.</div>
-      <div class="fact-card" tabindex="2">Ostriches don't actually bury their heads in the sand.</div>
+      <div class="fact-card" tabindex="0">Ostriches have the largest eyes of any land animal.</div>
+      <div class="fact-card" tabindex="0">An ostrich egg weighs about 1.4 kg.</div>
+      <div class="fact-card" tabindex="0">Ostriches don't actually bury their heads in the sand.</div>
     </div>
 
-  </div>
+  </main>
 
   <div class="footer">
     <p class="footer-text">© 2024 The Zoo. All rights reserved.</p>
-    <a href="https://example.com/zoo-map" target="_blank">Download Map</a>
+    <a href="https://example.com/zoo-map" target="_blank" aria-label="Download Map (opens in new tab)">Download Map</a>
   </div>
 
   <script src="main.js"></script>
