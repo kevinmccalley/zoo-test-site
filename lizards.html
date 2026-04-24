@@ -11,11 +11,30 @@
       color: #003300;
       text-decoration: none;
     }
+    .skip-link {
+      position: absolute;
+      left: -9999px;
+      top: 0;
+      background: #000000;
+      color: #ffffff;
+    }
+    .skip-link:focus {
+      left: 0;
+    }
+    input[type="checkbox"] {
+      border: 2px solid #555555;
+      appearance: auto;
+      -webkit-appearance: auto;
+    }
+    .gallery a img {
+      display: block;
+      outline: 2px solid #555555;
+    }
   </style>
 </head>
 <body>
 
-  <a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:0">Skip to main content</a>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <div class="header">
     <img src="https://placehold.co/120x48/2d6a2d/ffffff?text=THE+ZOO" class="logo" alt="The Zoo">
@@ -66,19 +85,19 @@
       <legend>Select which exhibits you want to see:</legend>
       <div class="custom-checkboxes">
         <div class="custom-checkbox">
-          <input type="checkbox" id="reptile-house">
+          <input type="checkbox" id="reptile-house" style="border:2px solid #555555;">
           <label for="reptile-house">Reptile House</label>
         </div>
         <div class="custom-checkbox">
-          <input type="checkbox" id="feeding-demo">
+          <input type="checkbox" id="feeding-demo" style="border:2px solid #555555;">
           <label for="feeding-demo">Feeding Demonstration</label>
         </div>
         <div class="custom-checkbox">
-          <input type="checkbox" id="komodo-viewing">
+          <input type="checkbox" id="komodo-viewing" style="border:2px solid #555555;">
           <label for="komodo-viewing">Komodo Dragon Viewing</label>
         </div>
         <div class="custom-checkbox">
-          <input type="checkbox" id="gecko-touch">
+          <input type="checkbox" id="gecko-touch" style="border:2px solid #555555;">
           <label for="gecko-touch">Gecko Touch Tank</label>
         </div>
       </div>
@@ -111,10 +130,10 @@
     <!-- Photo gallery without alt text -->
     <h2>Photo Gallery</h2>
     <div class="gallery">
-      <a href="#" aria-label="Photo of a lizard"><img src="https://loremflickr.com/360/240/lizard" alt="A lizard"></a>
-      <a href="#" aria-label="Photo of a gecko or lizard"><img src="https://loremflickr.com/360/240/gecko,lizard" alt="A gecko or lizard"></a>
-      <a href="#" aria-label="Photo of a Komodo dragon"><img src="https://loremflickr.com/360/240/komodo,dragon" alt="A Komodo dragon"></a>
-      <a href="#" aria-label="Photo of an iguana"><img src="https://loremflickr.com/360/240/iguana,lizard" alt="An iguana"></a>
+      <a href="#" aria-label="Photo of a lizard" style="outline:2px solid #555555;display:inline-block;"><img src="https://loremflickr.com/360/240/lizard" alt="A lizard" aria-hidden="true"></a>
+      <a href="#" aria-label="Photo of a gecko or lizard" style="outline:2px solid #555555;display:inline-block;"><img src="https://loremflickr.com/360/240/gecko,lizard" alt="A gecko or lizard" aria-hidden="true"></a>
+      <a href="#" aria-label="Photo of a Komodo dragon" style="outline:2px solid #555555;display:inline-block;"><img src="https://loremflickr.com/360/240/komodo,dragon" alt="A Komodo dragon" aria-hidden="true"></a>
+      <a href="#" aria-label="Photo of an iguana" style="outline:2px solid #555555;display:inline-block;"><img src="https://loremflickr.com/360/240/iguana,lizard" alt="An iguana" aria-hidden="true"></a>
     </div>
 
   </main>
