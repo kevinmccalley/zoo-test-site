@@ -1,72 +1,41 @@
 /* ===================================================================
  * AccessBridge — Accessibility Override Styles
- * Auto-generated coordinated fix for 64 WCAG violations.
+ * Auto-generated coordinated fix for 60 WCAG violations.
  * Generated: 2026-04-24
  *
  * To apply, add to your HTML <head>:
  *   <link rel="stylesheet" href="/accessibility-overrides.css">
- * =================================================================== */
+ * ===================================================================
+ */
 
-/* ---------------------------------------------------------------
- * FIX: color-contrast & color-contrast-enhanced (Violations 26, 31, 32, 38, 47, 48, 54, 55)
- * The "Home" nav div uses low-contrast text against the header background.
- * Replace with a high-contrast foreground that works on any dark-green header.
- * Selector targets all pages via the same pattern.
- * --------------------------------------------------------------- */
-.header .nav div[onclick] {
+/* -------------------------------------------------------------------
+ * Fix: color-contrast & color-contrast-enhanced (Violations 35, 36, 38, 39, 47, 48, 54, 55)
+ * The .nav Home div has insufficient contrast against its background.
+ * Replacing the light-on-green color with a high-contrast dark text.
+ * ------------------------------------------------------------------- */
+.header .nav div[onclick="location.href='index.html'"] {
   color: #ffffff !important;
+  background-color: #1a4a1a !important;
   font-weight: 600;
 }
 
-/* Ensure nav links/divs have sufficient contrast on focus too */
-.header .nav div[onclick]:hover,
-.header .nav div[onclick]:focus {
-  color: #ffffff !important;
-  text-decoration: underline;
-  outline: 3px solid #ffffff;
-  outline-offset: 2px;
+/* -------------------------------------------------------------------
+ * Fix: Focus visibility for gallery anchor links (Violations 40–43, 49–51, 56–59)
+ * Gallery links that contain only images need a clear visible focus
+ * indicator to meet non-text-contrast requirements for interactive
+ * element boundaries.
+ * ------------------------------------------------------------------- */
+.content .gallery a:focus,
+.content .gallery a:focus-visible {
+  outline: 3px solid #005fcc !important;
+  outline-offset: 2px !important;
 }
 
-/* ---------------------------------------------------------------
- * FIX: focus-visible / keyboard focus indicators (best-practice, supports
- * the interactive div nav items and gallery link elements)
- * --------------------------------------------------------------- */
-.header .nav div[onclick] {
-  cursor: pointer;
-}
-
+/* -------------------------------------------------------------------
+ * Fix: General focus-visible improvements across nav
+ * ------------------------------------------------------------------- */
+.header .nav div[onclick]:focus,
 .header .nav div[onclick]:focus-visible {
-  outline: 3px solid #ffff00;
-  outline-offset: 2px;
-}
-
-/* Gallery links: ensure visible focus ring for non-text-contrast (Violations 39-42, 49-51, 56-59) */
-.gallery a:focus-visible {
-  outline: 3px solid #005fcc;
-  outline-offset: 3px;
-}
-
-/* Ensure gallery images used as links display a visible border on focus
- * to satisfy non-text-contrast requirements */
-.gallery a img {
-  display: block;
-  border: 2px solid transparent;
-  transition: border-color 0.2s;
-}
-
-.gallery a:hover img,
-.gallery a:focus img {
-  border-color: #005fcc;
-}
-
-/* ---------------------------------------------------------------
- * FIX: meta-viewport — cannot be fixed in CSS, handled in JS.
- * --------------------------------------------------------------- */
-
-/* ---------------------------------------------------------------
- * FIX: General focus styles for form elements (supports label/select-name fixes)
- * --------------------------------------------------------------- */
-.form-input:focus {
-  outline: 3px solid #005fcc;
-  outline-offset: 2px;
+  outline: 3px solid #005fcc !important;
+  outline-offset: 2px !important;
 }
