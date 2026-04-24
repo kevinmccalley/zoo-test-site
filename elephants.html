@@ -1,88 +1,108 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Elephants - The Zoo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
+  <style>
+    a:focus-visible, a:focus,
+    button:focus-visible, button:focus,
+    input:focus-visible, input:focus,
+    select:focus-visible, select:focus,
+    textarea:focus-visible, textarea:focus,
+    [tabindex]:focus-visible, [tabindex]:focus {
+      outline: 3px solid #005fcc !important;
+      outline-offset: 2px !important;
+    }
+    .gallery a {
+      display: inline-block;
+      border: 3px solid #003a8c;
+      box-sizing: border-box;
+    }
+  </style>
 </head>
 <body>
 
+  <a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:0">Skip to main content</a>
+
   <div class="header">
-    <img src="https://placehold.co/120x48/2d6a2d/ffffff?text=THE+ZOO" class="logo">
-    <div class="nav">
-      <div onclick="location.href='index.html'">Home</div>
-      <div onclick="location.href='elephants.html'" class="active">Elephants</div>
-      <div onclick="location.href='ostriches.html'">Ostriches</div>
-      <div onclick="location.href='lizards.html'">Lizards</div>
-      <div onclick="location.href='contact.html'">Contact</div>
-    </div>
+    <img src="https://placehold.co/120x48/2d6a2d/ffffff?text=THE+ZOO" class="logo" alt="The Zoo">
+    <nav aria-label="Site navigation">
+      <ul style="list-style:none;margin:0;padding:0;display:flex;">
+        <li><a href="index.html" class="nav">Home</a></li>
+        <li><a href="elephants.html" class="nav active">Elephants</a></li>
+        <li><a href="ostriches.html" class="nav">Ostriches</a></li>
+        <li><a href="lizards.html" class="nav">Lizards</a></li>
+        <li><a href="contact.html" class="nav">Contact</a></li>
+      </ul>
+    </nav>
   </div>
 
-  <div class="content">
+  <main id="main-content" class="content">
 
     <!-- Skips h2 entirely -->
     <h1>Elephants</h1>
-    <h3>About African Elephants</h3>
+    <h2>About African Elephants</h2>
 
     <!-- Image missing alt -->
-    <img src="https://loremflickr.com/900/300/elephant,africa,savanna" class="hero-img">
+    <img src="https://loremflickr.com/900/300/elephant,africa,savanna" class="hero-img" alt="African elephant roaming the savanna">
 
     <!-- Text on an image background with no contrast guarantee -->
     <div class="image-text-overlay">
       <p>The African elephant is a marvel of nature.</p>
     </div>
 
-    <h3>Key Facts</h3>
+    <h2>Key Facts</h2>
 
     <!-- List items conveyed only by visual formatting, not <ul>/<li> -->
-    <div class="fake-list">
-      <div class="fake-list-item">• Average weight: 6,000 kg</div>
-      <div class="fake-list-item">• Lifespan: 60–70 years</div>
-      <div class="fake-list-item">• Diet: Herbivore (grass, fruit, bark)</div>
-      <div class="fake-list-item">• Habitat: African savanna and forests</div>
-    </div>
+    <ul class="fake-list">
+      <li class="fake-list-item">Average weight: 6,000 kg</li>
+      <li class="fake-list-item">Lifespan: 60–70 years</li>
+      <li class="fake-list-item">Diet: Herbivore (grass, fruit, bark)</li>
+      <li class="fake-list-item">Habitat: African savanna and forests</li>
+    </ul>
 
     <!-- Flashing/blinking content with no warning -->
     <div class="blink-warning">⚠ FEEDING TIME AT 3PM TODAY!</div>
 
-    <h3>Did You Know?</h3>
+    <h2>Did You Know?</h2>
     <p class="low-contrast">
       Elephants are the only animals that cannot jump. They use their trunks, which contain over
       40,000 muscles, to breathe, smell, drink, and grab objects.
     </p>
 
     <!-- Image gallery: all images missing alt, and links wrap images with no text -->
-    <h3>Photo Gallery</h3>
+    <h2>Photo Gallery</h2>
     <div class="gallery">
-      <a href="#"><img src="https://loremflickr.com/360/240/elephant"></a>
-      <a href="#"><img src="https://loremflickr.com/360/240/elephant,herd"></a>
-      <a href="#"><img src="https://loremflickr.com/360/240/elephant,baby"></a>
-      <a href="#"><img src="https://loremflickr.com/360/240/elephant,trunk"></a>
+      <a href="#" aria-label="Photo of an elephant" style="display:inline-block;border:3px solid #003a8c;box-sizing:border-box;"><img src="https://loremflickr.com/360/240/elephant" alt="An elephant"></a>
+      <a href="#" aria-label="Photo of a herd of elephants" style="display:inline-block;border:3px solid #003a8c;box-sizing:border-box;"><img src="https://loremflickr.com/360/240/elephant,herd" alt="A herd of elephants"></a>
+      <a href="#" aria-label="Photo of a baby elephant" style="display:inline-block;border:3px solid #003a8c;box-sizing:border-box;"><img src="https://loremflickr.com/360/240/elephant,baby" alt="A baby elephant"></a>
+      <a href="#" aria-label="Photo of an elephant using its trunk" style="display:inline-block;border:3px solid #003a8c;box-sizing:border-box;"><img src="https://loremflickr.com/360/240/elephant,trunk" alt="An elephant using its trunk"></a>
     </div>
 
     <!-- Accordion built with divs, no keyboard support, no aria -->
-    <h3>Frequently Asked Questions</h3>
+    <h2>Frequently Asked Questions</h2>
     <div class="accordion">
-      <div class="accordion-header" onclick="toggleAccordion('faq1')">
+      <button class="accordion-header" onclick="toggleAccordion('faq1')" aria-expanded="false" aria-controls="faq1">
         Can I feed the elephants?
-      </div>
+      </button>
       <div class="accordion-body" id="faq1" style="display:none">
         Yes! Elephant feeding sessions are held daily at 3pm. You can purchase elephant food
         at the main gift shop for $5.
       </div>
 
-      <div class="accordion-header" onclick="toggleAccordion('faq2')">
+      <button class="accordion-header" onclick="toggleAccordion('faq2')" aria-expanded="false" aria-controls="faq2">
         How close can I get to the elephants?
-      </div>
+      </button>
       <div class="accordion-body" id="faq2" style="display:none">
         Our elephant enclosure has a viewing platform 3 meters from the fence. During feeding
         sessions, guests may approach within 1 meter under staff supervision.
       </div>
 
-      <div class="accordion-header" onclick="toggleAccordion('faq3')">
+      <button class="accordion-header" onclick="toggleAccordion('faq3')" aria-expanded="false" aria-controls="faq3">
         Are elephants dangerous?
-      </div>
+      </button>
       <div class="accordion-body" id="faq3" style="display:none">
         Our elephants are well-trained and accustomed to human presence, but as wild animals
         they should always be respected and observed from a safe distance.
@@ -90,21 +110,21 @@
     </div>
 
     <!-- Color used as only means of conveying information -->
-    <h3>Elephant Health Status</h3>
+    <h2>Elephant Health Status</h2>
     <p class="tiny-text">Enclosure status indicators below:</p>
     <div class="status-indicators">
-      <div class="status-dot green"></div> Nelly
-      <div class="status-dot green"></div> Babar
-      <div class="status-dot yellow"></div> Dumbo
-      <div class="status-dot red"></div> Tantor
+      <div class="status-dot green" aria-hidden="true"></div> <span>Nelly (Healthy)</span>
+      <div class="status-dot green" aria-hidden="true"></div> <span>Babar (Healthy)</span>
+      <div class="status-dot yellow" aria-hidden="true"></div> <span>Dumbo (Under observation)</span>
+      <div class="status-dot red" aria-hidden="true"></div> <span>Tantor (Restricted access)</span>
     </div>
     <p class="tiny-text">(Green = healthy, Yellow = under observation, Red = restricted access)</p>
 
-  </div>
+  </main>
 
   <div class="footer">
     <p class="footer-text">© 2024 The Zoo. All rights reserved.</p>
-    <a href="https://example.com/zoo-map" target="_blank">Download Map</a>
+    <a href="https://example.com/zoo-map" target="_blank" aria-label="Download Map (opens in new tab)">Download Map</a>
   </div>
 
   <script src="main.js"></script>
