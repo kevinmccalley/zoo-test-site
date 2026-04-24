@@ -15,11 +15,27 @@
       display: inline-block;
       outline: 3px solid #333333;
     }
+    .skip-link {
+      position: absolute;
+      left: -9999px;
+      top: 0;
+      background: #000000;
+      color: #ffffff;
+    }
+    .skip-link:focus {
+      left: 0;
+    }
+    .gallery a {
+      outline: 3px solid #767676;
+    }
+    .gallery a:focus {
+      outline: 3px solid #767676;
+    }
   </style>
 </head>
 <body>
 
-  <a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:0">Skip to main content</a>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <div class="header">
     <img src="https://placehold.co/120x48/2d6a2d/ffffff?text=THE+ZOO" class="logo" alt="The Zoo">
@@ -69,10 +85,10 @@
     <!-- Image gallery: all images missing alt, and links wrap images with no text -->
     <h2>Photo Gallery</h2>
     <div class="gallery">
-      <a href="#" aria-label="Photo of an elephant" style="outline:3px solid #333333;display:inline-block;"><img src="https://loremflickr.com/360/240/elephant" alt="Elephant"></a>
-      <a href="#" aria-label="Photo of a herd of elephants" style="outline:3px solid #333333;display:inline-block;"><img src="https://loremflickr.com/360/240/elephant,herd" alt="Herd of elephants"></a>
-      <a href="#" aria-label="Photo of a baby elephant" style="outline:3px solid #333333;display:inline-block;"><img src="https://loremflickr.com/360/240/elephant,baby" alt="Baby elephant"></a>
-      <a href="#" aria-label="Photo of an elephant using its trunk" style="outline:3px solid #333333;display:inline-block;"><img src="https://loremflickr.com/360/240/elephant,trunk" alt="Elephant using its trunk"></a>
+      <a href="#" aria-label="Photo of an elephant" style="outline:3px solid #767676;display:inline-block;"><img src="https://loremflickr.com/360/240/elephant" alt="Elephant"></a>
+      <a href="#" aria-label="Photo of a herd of elephants" style="outline:3px solid #767676;display:inline-block;"><img src="https://loremflickr.com/360/240/elephant,herd" alt="Herd of elephants"></a>
+      <a href="#" aria-label="Photo of a baby elephant" style="outline:3px solid #767676;display:inline-block;"><img src="https://loremflickr.com/360/240/elephant,baby" alt="Baby elephant"></a>
+      <a href="#" aria-label="Photo of an elephant using its trunk" style="outline:3px solid #767676;display:inline-block;"><img src="https://loremflickr.com/360/240/elephant,trunk" alt="Elephant using its trunk"></a>
     </div>
 
     <!-- Accordion built with divs, no keyboard support, no aria -->
@@ -107,10 +123,10 @@
     <h2>Elephant Health Status</h2>
     <p class="tiny-text">Enclosure status indicators below:</p>
     <div class="status-indicators">
-      <div class="status-dot green" aria-label="Healthy"></div> Nelly
-      <div class="status-dot green" aria-label="Healthy"></div> Babar
-      <div class="status-dot yellow" aria-label="Under observation"></div> Dumbo
-      <div class="status-dot red" aria-label="Restricted access"></div> Tantor
+      <div class="status-dot green" role="img" aria-label="Healthy"></div> Nelly
+      <div class="status-dot green" role="img" aria-label="Healthy"></div> Babar
+      <div class="status-dot yellow" role="img" aria-label="Under observation"></div> Dumbo
+      <div class="status-dot red" role="img" aria-label="Restricted access"></div> Tantor
     </div>
     <p class="tiny-text">(Green = healthy, Yellow = under observation, Red = restricted access)</p>
 
