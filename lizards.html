@@ -5,10 +5,30 @@
   <title>Lizards - The Zoo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
+  <style>
+    .skip-link {
+      position: absolute;
+      left: -9999px;
+      top: 0;
+      background: #000000;
+      color: #ffffff;
+    }
+    .skip-link:focus {
+      left: 0;
+    }
+    input[type="checkbox"] {
+      border: 2px solid #767676;
+      outline: 2px solid #767676;
+    }
+    .gallery a img {
+      display: block;
+      outline: 3px solid #595959;
+    }
+  </style>
 </head>
 <body>
 
-  <a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:0">Skip to main content</a>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <div class="header">
     <img src="https://placehold.co/120x48/2d6a2d/ffffff?text=THE+ZOO" class="logo" alt="The Zoo">
@@ -59,19 +79,19 @@
       <legend>Exhibits you want to see</legend>
       <div class="custom-checkboxes">
         <div class="custom-checkbox">
-          <input type="checkbox" id="exhibit-reptile-house">
+          <input type="checkbox" id="exhibit-reptile-house" style="border:2px solid #595959;outline:2px solid #595959;">
           <label for="exhibit-reptile-house">Reptile House</label>
         </div>
         <div class="custom-checkbox">
-          <input type="checkbox" id="exhibit-feeding-demo">
+          <input type="checkbox" id="exhibit-feeding-demo" style="border:2px solid #595959;outline:2px solid #595959;">
           <label for="exhibit-feeding-demo">Feeding Demonstration</label>
         </div>
         <div class="custom-checkbox">
-          <input type="checkbox" id="exhibit-komodo-viewing">
+          <input type="checkbox" id="exhibit-komodo-viewing" style="border:2px solid #595959;outline:2px solid #595959;">
           <label for="exhibit-komodo-viewing">Komodo Dragon Viewing</label>
         </div>
         <div class="custom-checkbox">
-          <input type="checkbox" id="exhibit-gecko-touch">
+          <input type="checkbox" id="exhibit-gecko-touch" style="border:2px solid #595959;outline:2px solid #595959;">
           <label for="exhibit-gecko-touch">Gecko Touch Tank</label>
         </div>
       </div>
@@ -93,7 +113,7 @@
 
     <!-- Auto-refreshing content with no user control -->
     <h2>Live Temperature Feed</h2>
-    <div id="temp-feed" class="temp-feed" aria-live="polite" aria-label="Live enclosure temperature feed">
+    <div id="temp-feed" class="temp-feed" aria-live="polite">
       Loading enclosure temperatures...
     </div>
 
@@ -104,10 +124,10 @@
     <!-- Photo gallery with alt text -->
     <h2>Photo Gallery</h2>
     <div class="gallery">
-      <a href="#" aria-label="Photo of a lizard"><img src="https://loremflickr.com/360/240/lizard" alt="A lizard"></a>
-      <a href="#" aria-label="Photo of a gecko or lizard"><img src="https://loremflickr.com/360/240/gecko,lizard" alt="A gecko or lizard"></a>
-      <a href="#" aria-label="Photo of a Komodo dragon"><img src="https://loremflickr.com/360/240/komodo,dragon" alt="A Komodo dragon"></a>
-      <a href="#" aria-label="Photo of an iguana or lizard"><img src="https://loremflickr.com/360/240/iguana,lizard" alt="An iguana or lizard"></a>
+      <a href="#" aria-label="Photo of a lizard" style="outline:3px solid #595959;display:inline-block;"><img src="https://loremflickr.com/360/240/lizard" alt="A lizard" style="border:3px solid #595959;display:block;"></a>
+      <a href="#" aria-label="Photo of a gecko or lizard" style="outline:3px solid #595959;display:inline-block;"><img src="https://loremflickr.com/360/240/gecko,lizard" alt="A gecko or lizard" style="border:3px solid #595959;display:block;"></a>
+      <a href="#" aria-label="Photo of a Komodo dragon" style="outline:3px solid #595959;display:inline-block;"><img src="https://loremflickr.com/360/240/komodo,dragon" alt="A Komodo dragon" style="border:3px solid #595959;display:block;"></a>
+      <a href="#" aria-label="Photo of an iguana or lizard" style="outline:3px solid #595959;display:inline-block;"><img src="https://loremflickr.com/360/240/iguana,lizard" alt="An iguana or lizard" style="border:3px solid #595959;display:block;"></a>
     </div>
 
   </main>
