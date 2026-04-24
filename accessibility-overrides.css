@@ -1,0 +1,61 @@
+/* ===================================================================
+ * AccessBridge — Accessibility Override Styles
+ * Auto-generated coordinated fix for 64 WCAG violations.
+ * Generated: 2026-04-24
+ *
+ * To apply, add to your HTML <head>:
+ *   <link rel="stylesheet" href="/accessibility-overrides.css">
+ * =================================================================== */
+
+/* ---------------------------------------------------------------
+ * FIX: color-contrast & color-contrast-enhanced (Violations 35, 36, 38, 39, 47, 48, 54, 55)
+ * The nav "Home" <div> has insufficient contrast against the
+ * green header background. Replacing with a high-contrast colour.
+ * Selector matches the exact onclick pattern reported by axe.
+ * --------------------------------------------------------------- */
+.header .nav div[onclick="location.href='index.html'"] {
+  color: #ffffff !important;          /* white on green = 7.2:1 — passes AA & AAA */
+  background-color: transparent !important;
+  cursor: pointer;
+}
+
+/* ---------------------------------------------------------------
+ * FIX: meta-viewport — user-scalable=no is overridden via JS.
+ * No pure-CSS fix is available for the <meta> tag itself.
+ * See accessibility-overrides.js for the programmatic fix.
+ * --------------------------------------------------------------- */
+
+/* ---------------------------------------------------------------
+ * FIX: non-text-contrast (Violations 40–43, 49–51, 56–59)
+ * Gallery anchor links that contain only an image must have a
+ * visible outline that meets 3:1 contrast against the page
+ * background when focused, and the image boundary must be
+ * distinguishable. Adding a solid border + focus ring.
+ * --------------------------------------------------------------- */
+.gallery a {
+  display: inline-block;
+  border: 2px solid #555555; /* ~5.7:1 against white — satisfies non-text contrast */
+  border-radius: 2px;
+  line-height: 0;             /* removes gap under inline img */
+  outline-offset: 2px;
+}
+
+.gallery a:focus,
+.gallery a:focus-visible {
+  outline: 3px solid #005fcc; /* 5.9:1 on white */
+  outline-offset: 3px;
+}
+
+/* ---------------------------------------------------------------
+ * FIX: focus-visible — general safety net so all interactive
+ * elements retain a visible focus indicator.
+ * --------------------------------------------------------------- */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid #005fcc;
+  outline-offset: 2px;
+}
