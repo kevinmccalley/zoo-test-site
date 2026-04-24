@@ -1,34 +1,68 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Lizards - The Zoo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
+  <style>
+    a:focus-visible, a:focus,
+    button:focus-visible, button:focus,
+    input:focus-visible, input:focus,
+    select:focus-visible, select:focus,
+    textarea:focus-visible, textarea:focus,
+    [tabindex]:focus-visible, [tabindex]:focus {
+      outline: 3px solid #005fcc !important;
+      outline-offset: 2px !important;
+    }
+
+    input[type="checkbox"] {
+      border: 2px solid #767676 !important;
+      appearance: auto;
+      -webkit-appearance: auto;
+    }
+
+    .gallery a {
+      display: inline-block;
+      border: 3px solid #767676;
+      line-height: 0;
+    }
+
+    .gallery a:focus-visible,
+    .gallery a:focus {
+      border-color: #005fcc;
+      outline: 3px solid #005fcc !important;
+      outline-offset: 2px !important;
+    }
+  </style>
 </head>
 <body>
 
+  <a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:0">Skip to main content</a>
+
   <div class="header">
-    <img src="https://placehold.co/120x48/2d6a2d/ffffff?text=THE+ZOO" class="logo">
-    <div class="nav">
-      <div onclick="location.href='index.html'">Home</div>
-      <div onclick="location.href='elephants.html'">Elephants</div>
-      <div onclick="location.href='ostriches.html'">Ostriches</div>
-      <div onclick="location.href='lizards.html'" class="active">Lizards</div>
-      <div onclick="location.href='contact.html'">Contact</div>
-    </div>
+    <img src="https://placehold.co/120x48/2d6a2d/ffffff?text=THE+ZOO" class="logo" alt="The Zoo">
+    <nav aria-label="Site navigation">
+      <ul style="list-style:none;margin:0;padding:0;display:flex;">
+        <li><a href="index.html" class="">Home</a></li>
+        <li><a href="elephants.html" class="">Elephants</a></li>
+        <li><a href="ostriches.html" class="">Ostriches</a></li>
+        <li><a href="lizards.html" class="active">Lizards</a></li>
+        <li><a href="contact.html" class="">Contact</a></li>
+      </ul>
+    </nav>
   </div>
 
-  <div class="content">
+  <main id="main-content" class="content">
 
     <h1>Lizards</h1>
 
-    <img src="https://loremflickr.com/900/300/lizard,reptile,gecko" class="hero-img">
+    <img src="https://loremflickr.com/900/300/lizard,reptile,gecko" class="hero-img" alt="A lizard or reptile such as a gecko">
 
-    <h3>The Reptile House</h3>
+    <h2>The Reptile House</h2>
 
     <!-- Text rendered as an image — no text alternative -->
-    <img src="https://placehold.co/600x100/e8f4e8/333333?text=Lizards+have+walked+the+earth+for+over+200+million+years" class="quote-img">
+    <img src="https://placehold.co/600x100/e8f4e8/333333?text=Lizards+have+walked+the+earth+for+over+200+million+years" class="quote-img" alt="Lizards have walked the earth for over 200 million years">
 
     <p class="low-contrast">
       Lizards are a widespread group of squamate reptiles with over 6,000 species, ranging across all
@@ -37,78 +71,80 @@
     </p>
 
     <!-- Colour-only information: species names coloured by danger level -->
-    <h3>Species in Our Collection</h3>
+    <h2>Species in Our Collection</h2>
     <p class="tiny-text">Species highlighted in red are venomous. Species in green are safe to handle.</p>
     <ul class="species-list">
-      <li style="color: #c00;">Gila Monster</li>
-      <li style="color: #080;">Blue-tongued Skink</li>
-      <li style="color: #c00;">Komodo Dragon</li>
-      <li style="color: #080;">Bearded Dragon</li>
-      <li style="color: #080;">Leopard Gecko</li>
-      <li style="color: #c00;">Mexican Beaded Lizard</li>
+      <li style="color: #c00;">Gila Monster (venomous)</li>
+      <li style="color: #080;">Blue-tongued Skink (safe to handle)</li>
+      <li style="color: #c00;">Komodo Dragon (venomous)</li>
+      <li style="color: #080;">Bearded Dragon (safe to handle)</li>
+      <li style="color: #080;">Leopard Gecko (safe to handle)</li>
+      <li style="color: #c00;">Mexican Beaded Lizard (venomous)</li>
     </ul>
 
     <!-- Custom checkbox group with no fieldset/legend or ARIA -->
-    <h3>Plan Your Visit</h3>
+    <h2>Plan Your Visit</h2>
     <p class="tiny-text">Select which exhibits you want to see:</p>
-    <div class="custom-checkboxes">
-      <div class="custom-checkbox" onclick="toggleCheck(this)">
-        <div class="checkbox-box"></div>
-        <span>Reptile House</span>
+    <fieldset>
+      <legend>Exhibits you want to see</legend>
+      <div class="custom-checkboxes">
+        <div class="custom-checkbox">
+          <input type="checkbox" id="check-reptile-house">
+          <label for="check-reptile-house">Reptile House</label>
+        </div>
+        <div class="custom-checkbox">
+          <input type="checkbox" id="check-feeding-demo">
+          <label for="check-feeding-demo">Feeding Demonstration</label>
+        </div>
+        <div class="custom-checkbox">
+          <input type="checkbox" id="check-komodo-viewing">
+          <label for="check-komodo-viewing">Komodo Dragon Viewing</label>
+        </div>
+        <div class="custom-checkbox">
+          <input type="checkbox" id="check-gecko-tank">
+          <label for="check-gecko-tank">Gecko Touch Tank</label>
+        </div>
       </div>
-      <div class="custom-checkbox" onclick="toggleCheck(this)">
-        <div class="checkbox-box"></div>
-        <span>Feeding Demonstration</span>
-      </div>
-      <div class="custom-checkbox" onclick="toggleCheck(this)">
-        <div class="checkbox-box"></div>
-        <span>Komodo Dragon Viewing</span>
-      </div>
-      <div class="custom-checkbox" onclick="toggleCheck(this)">
-        <div class="checkbox-box"></div>
-        <span>Gecko Touch Tank</span>
-      </div>
-    </div>
+    </fieldset>
 
     <!-- Keyboard trap: modal that can't be closed with keyboard -->
-    <button onclick="document.getElementById('modal').style.display='flex'" class="open-modal-btn">
+    <button onclick="document.getElementById('modal').style.display='flex';document.getElementById('modal-close-btn').focus();" class="open-modal-btn">
       View Komodo Dragon Warning
     </button>
 
-    <div id="modal" class="modal" style="display:none;" aria-hidden="true">
+    <div id="modal" class="modal" style="display:none;" role="dialog" aria-modal="true" aria-labelledby="modal-title">
       <div class="modal-box">
-        <h2>⚠ Komodo Dragon Warning</h2>
+        <h2 id="modal-title">⚠ Komodo Dragon Warning</h2>
         <p>The Komodo dragon enclosure is strictly off-limits without a staff escort.
            Komodo dragons have venomous bites and can run up to 20 km/h.</p>
-        <!-- Close button has no accessible label -->
-        <div onclick="document.getElementById('modal').style.display='none'" class="modal-close">X</div>
+        <button id="modal-close-btn" onclick="document.getElementById('modal').style.display='none'" class="modal-close" aria-label="Close warning dialog">X</button>
       </div>
     </div>
 
     <!-- Auto-refreshing content with no user control -->
-    <h3>Live Temperature Feed</h3>
-    <div id="temp-feed" class="temp-feed">
+    <h2>Live Temperature Feed</h2>
+    <div id="temp-feed" class="temp-feed" aria-live="polite">
       Loading enclosure temperatures...
     </div>
 
     <!-- iFrame with no title -->
-    <h3>Lizard Cam</h3>
-    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" width="560" height="315"></iframe>
+    <h2>Lizard Cam</h2>
+    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" width="560" height="315" title="Lizard Cam video"></iframe>
 
     <!-- Photo gallery without alt text -->
-    <h3>Photo Gallery</h3>
+    <h2>Photo Gallery</h2>
     <div class="gallery">
-      <a href="#"><img src="https://loremflickr.com/360/240/lizard"></a>
-      <a href="#"><img src="https://loremflickr.com/360/240/gecko,lizard"></a>
-      <a href="#"><img src="https://loremflickr.com/360/240/komodo,dragon"></a>
-      <a href="#"><img src="https://loremflickr.com/360/240/iguana,lizard"></a>
+      <a href="#" aria-label="Photo of a lizard" style="display:inline-block;border:3px solid #767676;line-height:0;"><img src="https://loremflickr.com/360/240/lizard" alt="A lizard"></a>
+      <a href="#" aria-label="Photo of a gecko or lizard" style="display:inline-block;border:3px solid #767676;line-height:0;"><img src="https://loremflickr.com/360/240/gecko,lizard" alt="A gecko or lizard"></a>
+      <a href="#" aria-label="Photo of a Komodo dragon" style="display:inline-block;border:3px solid #767676;line-height:0;"><img src="https://loremflickr.com/360/240/komodo,dragon" alt="A Komodo dragon"></a>
+      <a href="#" aria-label="Photo of an iguana" style="display:inline-block;border:3px solid #767676;line-height:0;"><img src="https://loremflickr.com/360/240/iguana,lizard" alt="An iguana"></a>
     </div>
 
-  </div>
+  </main>
 
   <div class="footer">
     <p class="footer-text">© 2024 The Zoo. All rights reserved.</p>
-    <a href="https://example.com/zoo-map" target="_blank">Download Map</a>
+    <a href="https://example.com/zoo-map" target="_blank" aria-label="Download Map (opens in new tab)">Download Map</a>
   </div>
 
   <script src="main.js"></script>
