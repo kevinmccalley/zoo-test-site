@@ -1,105 +1,111 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Contact - The Zoo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="/accessibility-overrides.css">
+  <style>
+    .header .nav a {
+      color: #000000;
+      text-decoration: none;
+    }
+    input[type="radio"] {
+      border: 2px solid #767676;
+      accent-color: #2d6a2d;
+    }
+  </style>
 </head>
 <body>
 
+  <a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:0">Skip to main content</a>
+
   <div class="header">
-    <img src="https://placehold.co/120x48/2d6a2d/ffffff?text=THE+ZOO" class="logo">
-    <div class="nav">
-      <div onclick="location.href='index.html'">Home</div>
-      <div onclick="location.href='elephants.html'">Elephants</div>
-      <div onclick="location.href='ostriches.html'">Ostriches</div>
-      <div onclick="location.href='lizards.html'">Lizards</div>
-      <div onclick="location.href='contact.html'" class="active">Contact</div>
-    </div>
+    <img src="https://placehold.co/120x48/2d6a2d/ffffff?text=THE+ZOO" class="logo" alt="The Zoo">
+    <nav aria-label="Site navigation">
+      <ul style="list-style:none;margin:0;padding:0;display:flex;">
+        <li><a href="index.html" class="" style="color:#000000;">Home</a></li>
+        <li><a href="elephants.html" class="" style="color:#000000;">Elephants</a></li>
+        <li><a href="ostriches.html" class="" style="color:#000000;">Ostriches</a></li>
+        <li><a href="lizards.html" class="" style="color:#000000;">Lizards</a></li>
+        <li><a href="contact.html" class="active" style="color:#000000;">Contact</a></li>
+      </ul>
+    </nav>
   </div>
 
-  <div class="content">
+  <main id="main-content" class="content">
 
     <h1>Contact Us</h1>
 
-    <!-- Entire contact form is inaccessible in multiple ways -->
     <form class="contact-form" onsubmit="handleContactSubmit(event)">
 
-      <!-- No label at all -->
-      <input type="text" placeholder="Full Name *" class="form-input" id="name">
+      <label for="name">Full Name *</label>
+      <input type="text" placeholder="Full Name *" class="form-input" id="name" aria-required="true">
 
-      <!-- Label text doesn't describe the field -->
-      <label for="wrong-id">Field 2</label>
+      <label for="email-field">Email address</label>
       <input type="email" id="email-field" placeholder="Email address" class="form-input">
 
-      <!-- Phone with wrong input type -->
       <label for="phone">Phone</label>
-      <input type="text" id="phone" placeholder="(555) 555-5555" class="form-input">
+      <input type="tel" id="phone" placeholder="(555) 555-5555" class="form-input">
 
-      <!-- Textarea with no label -->
-      <textarea placeholder="Write your message here..." class="form-textarea" rows="5"></textarea>
+      <label for="message">Message</label>
+      <textarea id="message" placeholder="Write your message here..." class="form-textarea" rows="5"></textarea>
 
-      <!-- Radio group with no fieldset/legend -->
-      <div class="radio-group">
-        <div><input type="radio" name="topic" value="general"> General Inquiry</div>
-        <div><input type="radio" name="topic" value="booking"> Booking</div>
-        <div><input type="radio" name="topic" value="complaint"> Complaint</div>
-        <div><input type="radio" name="topic" value="press"> Press</div>
-      </div>
+      <fieldset>
+        <legend>Topic</legend>
+        <div class="radio-group">
+          <div><label><input type="radio" name="topic" value="general"> General Inquiry</label></div>
+          <div><label><input type="radio" name="topic" value="booking"> Booking</label></div>
+          <div><label><input type="radio" name="topic" value="complaint"> Complaint</label></div>
+          <div><label><input type="radio" name="topic" value="press"> Press</label></div>
+        </div>
+      </fieldset>
 
-      <!-- Required fields indicated only by colour (red asterisk, no aria-required) -->
-      <p style="color: red; font-size: 10px;">* Required fields</p>
+      <p style="font-size: 10px;">* Required fields</p>
 
-      <!-- Submit button with insufficient contrast -->
-      <button type="submit" class="low-contrast-btn">Send Message</button>
+      <button type="submit" class="low-contrast-btn" style="color:#000000;background-color:#ffffff;border:2px solid #000000;">Send Message</button>
 
     </form>
 
-    <!-- Error message that appears but is not announced -->
-    <div id="form-error" class="form-error" style="display:none;">
+    <div id="form-error" class="form-error" style="display:none;" role="alert">
       Please fill in all required fields.
     </div>
 
-    <!-- Success message hidden then shown, but no aria-live -->
-    <div id="form-success" class="form-success" style="display:none;">
+    <div id="form-success" class="form-success" style="display:none;" aria-live="polite">
       Thank you for your message! We'll be in touch.
     </div>
 
-    <h3>Find Us</h3>
+    <h2>Find Us</h2>
 
-    <!-- iFrame map with no title -->
     <iframe
       src="https://www.openstreetmap.org/export/embed.html?bbox=-0.1%2C51.4%2C0.1%2C51.6&layer=mapnik"
       width="600"
       height="400"
-      style="border:1px solid #ccc">
+      style="border:1px solid #ccc"
+      title="Map showing the zoo location">
     </iframe>
 
-    <h3>Opening Hours</h3>
+    <h2>Opening Hours</h2>
 
-    <!-- Opening hours communicated only with text colour / bold, no semantic table -->
     <div class="hours-div">
-      <span style="color:#090; font-weight:bold;">Mon–Fri:</span> 9am–5pm<br>
-      <span style="color:#090; font-weight:bold;">Saturday:</span> 8am–7pm<br>
-      <span style="color:#c00; font-weight:bold;">Sunday:</span> CLOSED
+      <span style="font-weight:bold;">Mon–Fri:</span> 9am–5pm<br>
+      <span style="font-weight:bold;">Saturday:</span> 8am–7pm<br>
+      <span style="font-weight:bold;">Sunday:</span> CLOSED
     </div>
 
-    <!-- Link with duplicate text pointing to different destinations -->
     <p>
-      <a href="elephants.html">Learn more</a> about our elephants or
-      <a href="ostriches.html">learn more</a> about our ostriches.
+      <a href="elephants.html">Learn more about our elephants</a> or
+      <a href="ostriches.html">learn more about our ostriches</a>.
     </p>
 
-    <!-- Empty link -->
-    <a href="tel:+15555550100"></a>
+    <a href="tel:+15555550100" aria-label="Call us at +1 555 555 0100">+1 555 555 0100</a>
 
-  </div>
+  </main>
 
   <div class="footer">
     <p class="footer-text">© 2024 The Zoo. All rights reserved.</p>
-    <a href="https://example.com/zoo-map" target="_blank">Download Map</a>
+    <a href="https://example.com/zoo-map" target="_blank" aria-label="Download Map (opens in new tab)">Download Map</a>
   </div>
 
   <script src="main.js"></script>
