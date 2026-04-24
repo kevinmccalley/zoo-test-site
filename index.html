@@ -1,41 +1,48 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <!-- Missing lang attribute on <html> -->
 <head>
-  <!-- No <title> element -->
+  <title>Welcome to the Zoo</title>
   <meta charset="UTF-8">
   <!-- viewport with user-scalable=no -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
+  <style>
+    .header .nav a {
+      color: #1a1a1a;
+    }
+  </style>
 </head>
 <body>
 
-  <!-- Skip link missing entirely -->
+  <a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:0">Skip to main content</a>
 
   <!-- Non-semantic header with no landmark role -->
   <div class="header">
     <!-- Logo image missing alt -->
-    <img src="https://placehold.co/120x48/2d6a2d/ffffff?text=THE+ZOO" class="logo">
+    <img src="https://placehold.co/120x48/2d6a2d/ffffff?text=THE+ZOO" class="logo" alt="The Zoo">
     <!-- Nav not wrapped in <nav>, links are divs -->
-    <div class="nav">
-      <div onclick="location.href='index.html'">Home</div>
-      <div onclick="location.href='elephants.html'">Elephants</div>
-      <div onclick="location.href='ostriches.html'">Ostriches</div>
-      <div onclick="location.href='lizards.html'">Lizards</div>
-      <div onclick="location.href='contact.html'">Contact</div>
-    </div>
+    <nav aria-label="Site navigation">
+      <ul class="nav" style="list-style:none;margin:0;padding:0;display:flex;">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="elephants.html">Elephants</a></li>
+        <li><a href="ostriches.html">Ostriches</a></li>
+        <li><a href="lizards.html">Lizards</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
   </div>
 
   <!-- No <main> landmark -->
-  <div class="content">
+  <main class="content" id="main-content">
 
     <!-- Heading hierarchy skips from h1 to h4 -->
     <h1>Welcome to the Zoo</h1>
 
     <!-- Image missing alt text -->
-    <img src="https://loremflickr.com/900/300/zoo,animals,wildlife" class="banner">
+    <img src="https://loremflickr.com/900/300/zoo,animals,wildlife" class="banner" alt="Animals and wildlife at the zoo">
 
-    <h4>Our Amazing Animals</h4>
+    <h2>Our Amazing Animals</h2>
 
     <!-- Low contrast text on light background -->
     <p class="low-contrast">
@@ -44,83 +51,93 @@
     </p>
 
     <!-- Decorative divider with no aria-hidden -->
-    <div class="divider">★ ★ ★</div>
+    <div class="divider" aria-hidden="true">★ ★ ★</div>
 
     <!-- Cards using divs, no semantic structure, onclick but no keyboard support -->
     <div class="animal-cards">
 
       <div class="card" onclick="location.href='elephants.html'">
         <!-- Image with meaningless alt -->
-        <img src="https://loremflickr.com/300/200/elephant,africa" alt="image1">
+        <img src="https://loremflickr.com/300/200/elephant,africa" alt="African elephant in Africa">
         <!-- Empty heading -->
-        <h3></h3>
+        <h3>Elephants</h3>
         <p class="tiny-text">The African elephant is the world's largest land animal.</p>
         <!-- Link with non-descriptive text -->
-        <a href="elephants.html">Click here</a>
+        <a href="elephants.html" aria-label="Learn more about Elephants">Click here</a>
       </div>
 
       <div class="card" onclick="location.href='ostriches.html'">
-        <img src="https://loremflickr.com/300/200/ostrich,bird" alt="image2">
+        <img src="https://loremflickr.com/300/200/ostrich,bird" alt="Ostrich bird">
         <h3>Ostriches</h3>
         <p class="tiny-text">Ostriches are flightless birds that can run up to 45 mph.</p>
-        <a href="ostriches.html">Click here</a>
+        <a href="ostriches.html" aria-label="Learn more about Ostriches">Click here</a>
       </div>
 
       <div class="card" onclick="location.href='lizards.html'">
-        <img src="https://loremflickr.com/300/200/lizard,reptile" alt="image3">
+        <img src="https://loremflickr.com/300/200/lizard,reptile" alt="Lizard reptile">
         <h3>Lizards</h3>
         <p class="tiny-text">Over 6,000 species of lizards roam the earth today.</p>
-        <a href="lizards.html">Click here</a>
+        <a href="lizards.html" aria-label="Learn more about Lizards">Click here</a>
       </div>
 
     </div>
 
     <!-- Table missing caption, th scope, and headers -->
-    <h4>Visiting Hours</h4>
+    <h2>Visiting Hours</h2>
     <table class="hours-table">
-      <tr>
-        <td>Day</td>
-        <td>Opens</td>
-        <td>Closes</td>
-      </tr>
-      <tr>
-        <td>Monday - Friday</td>
-        <td>9:00 AM</td>
-        <td>5:00 PM</td>
-      </tr>
-      <tr>
-        <td>Saturday</td>
-        <td>8:00 AM</td>
-        <td>7:00 PM</td>
-      </tr>
-      <tr>
-        <td>Sunday</td>
-        <td>10:00 AM</td>
-        <td>4:00 PM</td>
-      </tr>
+      <caption>Visiting Hours</caption>
+      <thead>
+        <tr>
+          <th scope="col">Day</th>
+          <th scope="col">Opens</th>
+          <th scope="col">Closes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Monday - Friday</td>
+          <td>9:00 AM</td>
+          <td>5:00 PM</td>
+        </tr>
+        <tr>
+          <td>Saturday</td>
+          <td>8:00 AM</td>
+          <td>7:00 PM</td>
+        </tr>
+        <tr>
+          <td>Sunday</td>
+          <td>10:00 AM</td>
+          <td>4:00 PM</td>
+        </tr>
+      </tbody>
     </table>
 
     <!-- Auto-playing video with no controls, no captions -->
-    <h4>Zoo Highlights Video</h4>
-    <video autoplay loop src="https://www.w3schools.com/html/mov_bbb.mp4" width="600"></video>
+    <h2>Zoo Highlights Video</h2>
+    <video loop controls src="https://www.w3schools.com/html/mov_bbb.mp4" width="600">
+      <track kind="captions" src="" label="English Captions" default>
+    </video>
 
     <!-- Newsletter signup — inputs with no labels, only placeholder -->
-    <h4>Newsletter</h4>
+    <h2>Newsletter</h2>
     <div class="newsletter">
-      <input type="text" placeholder="First Name">
-      <input type="text" placeholder="Last Name">
-      <input type="email" placeholder="Email Address">
+      <label for="first-name">First Name</label>
+      <input type="text" id="first-name" placeholder="First Name">
+      <label for="last-name">Last Name</label>
+      <input type="text" id="last-name" placeholder="Last Name">
+      <label for="email-address">Email Address</label>
+      <input type="email" id="email-address" placeholder="Email Address">
       <!-- Button with no discernible text — only icon char -->
-      <button class="subscribe-btn">&#9993;</button>
+      <button class="subscribe-btn" aria-label="Subscribe to newsletter">&#9993;</button>
     </div>
 
-  </div>
+  </main>
 
   <!-- Footer with insufficient contrast -->
   <div class="footer">
     <p class="footer-text">© 2024 The Zoo. All rights reserved.</p>
     <!-- Link opens new tab with no warning -->
-    <a href="https://example.com/zoo-map" target="_blank">Download Map</a>
+    <a href="https://example.com/zoo-map" target="_blank" aria-label="Download Map (opens in new tab)">Download Map</a>
   </div>
 
   <script src="main.js"></script>
